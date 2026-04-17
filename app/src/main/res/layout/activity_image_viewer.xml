@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ui.ImageViewerActivity">
+
+    <com.example.projectmodule.ui.ZoomableImageView
+        android:id="@+id/fullScreenImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/exercise_image_description"
+        android:scaleType="matrix"
+        tools:srcCompat="@drawable/ic_menu_crop" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fullScreenTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#66000000"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Push-Ups" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/closeButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:minWidth="0dp"
+        android:contentDescription="@string/close_fullscreen"
+        android:text="@string/close_fullscreen_symbol"
+        android:textColor="@android:color/white"
+        app:backgroundTint="#66000000"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="1dp" />
+
+</FrameLayout>
+

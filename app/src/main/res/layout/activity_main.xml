@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0A"
+    tools:context=".ui.MainActivity">
+
+    <!-- Premium Toolbar with Gradient Background -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleCentered="true"
+        app:titleTextColor="#FFFFFF" />
+
+    <!-- Subtle Status Indicator -->
+    <View
+        android:id="@+id/statusIndicator"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <!-- Premium Authentication Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/authCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="#151515"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusIndicator"
+        app:strokeColor="#1E1E1E"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Session Status with Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/statusDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/sessionStatusText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.01"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    tools:text="Session Active" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#1E1E1E" />
+
+            <!-- Primary Actions Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/loginButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    app:cornerRadius="12dp"
+                    app:elevation="0dp"
+                    app:rippleColor="#40FFFFFF" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signUpButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@string/sign_up"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    app:cornerRadius="12dp"
+                    app:elevation="0dp"
+                    app:rippleColor="#40FFFFFF"
+                    app:strokeColor="#2E2E2E"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+
+            <!-- Secondary Actions Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/weeklyPlanButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@string/login_to_weekly_plan"
+                    android:textAllCaps="false"
+                    android:textColor="#A0A0A0"
+                    android:textSize="14sp"
+                    app:backgroundTint="#1A1A1A"
+                    app:cornerRadius="12dp"
+                    app:elevation="0dp"
+                    app:rippleColor="#40FFFFFF"
+                    app:strokeColor="#252525"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logoutButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="@string/logout"
+                    android:textAllCaps="false"
+                    android:textColor="#FF4444"
+                    android:textSize="14sp"
+                    app:backgroundTint="#1F1515"
+                    app:cornerRadius="12dp"
+                    app:elevation="0dp"
+                    app:rippleColor="#40FF4444"
+                    app:strokeColor="#331A1A"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Content RecyclerView with Premium Styling -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCategories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authCard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
