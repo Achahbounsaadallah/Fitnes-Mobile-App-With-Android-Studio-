@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "fitnessflow.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_USER_ID = "id";
@@ -29,6 +29,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TASK_TITLE = "task_title";
     public static final String COLUMN_TASK_STATUS = "status";
     public static final String COLUMN_TASK_ORDER = "task_order";
+
+    public static final String TABLE_FAVORITES = "favorites";
+    public static final String COLUMN_FAVORITE_ID = "id";
+    public static final String COLUMN_FAVORITE_USER_ID = "user_id";
+    public static final String COLUMN_FAVORITE_EXERCISE_ID = "exercise_id";
 
     private static final String CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " ("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -58,6 +63,15 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY(" + COLUMN_TASK_PLAN_ID + ") REFERENCES " + TABLE_WEEKLY_PLANS + "(" + COLUMN_PLAN_ID + ")"
             + ")";
 
+    private static final String CREATE_FAVORITES = "CREATE TABLE IF NOT EXISTS " + TABLE_FAVORITES + " ("
+            + COLUMN_FAVORITE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_FAVORITE_USER_ID + " INTEGER NOT NULL, "
+            + COLUMN_FAVORITE_EXERCISE_ID + " TEXT NOT NULL, "
+            + COLUMN_CREATED_AT + " INTEGER NOT NULL DEFAULT (strftime('%s','now')), "
+            + "UNIQUE(" + COLUMN_FAVORITE_USER_ID + ", " + COLUMN_FAVORITE_EXERCISE_ID + "), "
+            + "FOREIGN KEY(" + COLUMN_FAVORITE_USER_ID + ") REFERENCES " + TABLE_USERS + "(" + COLUMN_USER_ID + ")"
+            + ")";
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -67,14 +81,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_USERS);
         db.execSQL(CREATE_WEEKLY_PLANS);
         db.execSQL(CREATE_WEEKLY_TASKS);
+        db.execSQL(CREATE_FAVORITES);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEEKLY_TASKS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEEKLY_PLANS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        onCreate(db);
+        if (oldVersion < 2) {
+            db.execSQL(CREATE_FAVORITES);
+        }
     }
 }
 

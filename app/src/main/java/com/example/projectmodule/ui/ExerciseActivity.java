@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectmodule.R;
 import com.example.projectmodule.viewmodel.ExerciseViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ExerciseActivity extends AppCompatActivity {
 
@@ -48,17 +49,26 @@ public class ExerciseActivity extends AppCompatActivity {
 		RecyclerView recyclerView = findViewById(R.id.recyclerExercises);
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
 		recyclerView.setHasFixedSize(true);
-		exerciseAdapter = new ExerciseAdapter(exercise -> {
-			Intent intent = new Intent(ExerciseActivity.this, ExerciseDetailActivity.class);
-			intent.putExtra(EXTRA_EXERCISE_ID, exercise.getId());
-			startActivity(intent);
-		});
+		exerciseAdapter = new ExerciseAdapter(
+				exercise -> {
+					Intent intent = new Intent(ExerciseActivity.this, ExerciseDetailActivity.class);
+					intent.putExtra(EXTRA_EXERCISE_ID, exercise.getId());
+					startActivity(intent);
+				},
+				exercise -> {
+					boolean updated = exerciseViewModel.toggleFavorite(exercise.getId());
+					if (!updated) {
+						Snackbar.make(recyclerView, R.string.login_required_for_favorites, Snackbar.LENGTH_SHORT).show();
+					}
+				}
+		);
 		recyclerView.setAdapter(exerciseAdapter);
 	}
 
 	private void setupViewModel(String categoryId) {
 		exerciseViewModel = new ViewModelProvider(this).get(ExerciseViewModel.class);
 		exerciseViewModel.getExercises().observe(this, exercises -> exerciseAdapter.submitExercises(exercises));
+		exerciseViewModel.getFavoriteIds().observe(this, favoriteIds -> exerciseAdapter.submitFavoriteIds(favoriteIds));
 		exerciseViewModel.loadExercises(categoryId);
 	}
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/app_background"
     tools:context=".ui.ExerciseActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -17,7 +17,7 @@
         android:paddingEnd="16dp"
         app:navigationIcon="@android:drawable/ic_menu_revert"
         app:titleCentered="true"
-        app:titleTextColor="@android:color/white"
+        app:titleTextColor="@color/text_on_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

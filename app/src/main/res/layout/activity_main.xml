@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0A0A"
+    android:background="@color/app_background"
     tools:context=".ui.MainActivity">
 
     <!-- Premium Toolbar with Gradient Background -->
+
+    <!-- Subtle Status Indicator -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -16,13 +18,14 @@
         android:minHeight="?attr/actionBarSize"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
+        android:background="@color/green_primary"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleCentered="true"
-        app:titleTextColor="#FFFFFF" />
+        app:titleTextColor="@color/text_on_primary" />
 
-    <!-- Subtle Status Indicator -->
     <View
         android:id="@+id/statusIndicator"
         android:layout_width="0dp"
@@ -41,13 +44,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
         android:background="@android:color/transparent"
-        app:cardBackgroundColor="#151515"
+        app:cardBackgroundColor="@color/app_surface"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statusIndicator"
-        app:strokeColor="#1E1E1E"
+        app:strokeColor="@color/app_border"
         app:strokeWidth="1dp">
 
         <LinearLayout
@@ -76,7 +79,7 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-medium"
                     android:letterSpacing="0.01"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     tools:text="Session Active" />
             </LinearLayout>
@@ -87,7 +90,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="#1E1E1E" />
+                android:background="@color/app_border" />
 
             <!-- Primary Actions Row -->
             <LinearLayout
@@ -106,10 +109,12 @@
                     android:letterSpacing="0.02"
                     android:text="@string/login"
                     android:textAllCaps="false"
+                    android:textColor="@color/text_on_primary"
                     android:textSize="15sp"
+                    app:backgroundTint="@color/button_primary_tint"
                     app:cornerRadius="12dp"
                     app:elevation="0dp"
-                    app:rippleColor="#40FFFFFF" />
+                    app:rippleColor="@color/app_border" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/signUpButton"
@@ -121,12 +126,13 @@
                     android:letterSpacing="0.02"
                     android:text="@string/sign_up"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
+                    app:backgroundTint="@color/button_secondary_selector"
                     app:cornerRadius="12dp"
                     app:elevation="0dp"
-                    app:rippleColor="#40FFFFFF"
-                    app:strokeColor="#2E2E2E"
+                    app:rippleColor="@color/app_border"
+                    app:strokeColor="@color/app_border"
                     app:strokeWidth="1dp" />
             </LinearLayout>
 
@@ -148,13 +154,13 @@
                     android:letterSpacing="0.02"
                     android:text="@string/login_to_weekly_plan"
                     android:textAllCaps="false"
-                    android:textColor="#A0A0A0"
+                    android:textColor="@color/text_secondary"
                     android:textSize="14sp"
-                    app:backgroundTint="#1A1A1A"
+                    app:backgroundTint="@color/button_secondary_selector"
                     app:cornerRadius="12dp"
                     app:elevation="0dp"
-                    app:rippleColor="#40FFFFFF"
-                    app:strokeColor="#252525"
+                    app:rippleColor="@color/app_border"
+                    app:strokeColor="@color/app_border"
                     app:strokeWidth="1dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -167,15 +173,33 @@
                     android:letterSpacing="0.02"
                     android:text="@string/logout"
                     android:textAllCaps="false"
-                    android:textColor="#FF4444"
+                    android:textColor="@color/button_destructive_text"
                     android:textSize="14sp"
-                    app:backgroundTint="#1F1515"
+                    app:backgroundTint="@color/button_destructive_tint"
                     app:cornerRadius="12dp"
                     app:elevation="0dp"
-                    app:rippleColor="#40FF4444"
-                    app:strokeColor="#331A1A"
+                    app:rippleColor="@color/app_border"
+                    app:strokeColor="@color/button_destructive_text"
                     app:strokeWidth="1dp" />
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/favoritesButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.02"
+                android:text="@string/open_favorites"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                app:backgroundTint="@color/button_secondary_selector"
+                app:cornerRadius="12dp"
+                app:elevation="0dp"
+                app:rippleColor="@color/app_border"
+                app:strokeColor="@color/app_border"
+                app:strokeWidth="1dp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

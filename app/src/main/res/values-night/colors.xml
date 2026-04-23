@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_primary">#66BB6A</color>
+    <color name="green_primary_variant">#2E7D32</color>
+    <color name="green_secondary">#81C784</color>
+    <color name="green_secondary_variant">#4CAF50</color>
+
+    <color name="app_background">#0E1A12</color>
+    <color name="app_surface">#16261A</color>
+    <color name="app_surface_variant">#1D3324</color>
+    <color name="app_border">#2E4A37</color>
+
+    <color name="text_primary">#E7F4EA</color>
+    <color name="text_secondary">#B9D5C0</color>
+    <color name="text_on_primary">#0A150E</color>
+
+    <color name="state_success">#66BB6A</color>
+    <color name="state_error">#FF8A80</color>
+    <color name="state_warning">#FFD180</color>
+
+    <color name="button_primary">#4CAF50</color>
+    <color name="button_primary_pressed">#2E7D32</color>
+    <color name="button_primary_disabled">#365D3D</color>
+    <color name="button_secondary">#263D2C</color>
+    <color name="button_secondary_pressed">#305037</color>
+    <color name="button_secondary_disabled">#223028</color>
+    <color name="button_destructive_bg">#4B2522</color>
+    <color name="button_destructive_pressed">#62312D</color>
+    <color name="button_destructive_text">#FFB4AB</color>
+
+    <color name="overlay_scrim">#66000000</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+

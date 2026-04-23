@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 	private MaterialButton signUpButton;
 	private MaterialButton weeklyPlanButton;
 	private MaterialButton logoutButton;
+	private MaterialButton favoritesButton;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,10 +66,12 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 		signUpButton = findViewById(R.id.signUpButton);
 		weeklyPlanButton = findViewById(R.id.weeklyPlanButton);
 		logoutButton = findViewById(R.id.logoutButton);
+		favoritesButton = findViewById(R.id.favoritesButton);
 
 		loginButton.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
 		signUpButton.setOnClickListener(v -> startActivity(new Intent(this, SignUpActivity.class)));
 		weeklyPlanButton.setOnClickListener(v -> openWeeklyPlan());
+		favoritesButton.setOnClickListener(v -> openFavorites());
 		logoutButton.setOnClickListener(v -> {
 			sessionManager.clearSession();
 			updateAuthUi();
@@ -90,6 +93,13 @@ public class MainActivity extends AppCompatActivity implements CategoryAdapter.O
 	private void openWeeklyPlan() {
 		Intent intent = sessionManager.isLoggedIn()
 				? new Intent(this, WeeklyPlanActivity.class)
+				: new Intent(this, LoginActivity.class);
+		startActivity(intent);
+	}
+
+	private void openFavorites() {
+		Intent intent = sessionManager.isLoggedIn()
+				? new Intent(this, FavoritesActivity.class)
 				: new Intent(this, LoginActivity.class);
 		startActivity(intent);
 	}

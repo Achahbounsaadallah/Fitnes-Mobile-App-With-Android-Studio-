@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/app_background"
     tools:context=".ui.ExerciseDetailActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -17,7 +17,7 @@
         android:paddingEnd="16dp"
         app:navigationIcon="@android:drawable/ic_menu_revert"
         app:titleCentered="true"
-        app:titleTextColor="@android:color/white"
+        app:titleTextColor="@color/text_on_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,8 +40,11 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/app_surface"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                app:strokeColor="@color/app_border"
+                app:strokeWidth="1dp">
 
                 <ImageView
                     android:id="@+id/detailImage"
@@ -52,15 +55,32 @@
                     tools:srcCompat="@drawable/ic_menu_crop" />
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/detailTitle"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:text="Push-Ups" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/detailTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="Push-Ups" />
+
+                <ImageView
+                    android:id="@+id/detailFavoriteButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/favorite"
+                    android:padding="2dp"
+                    app:tint="@color/state_warning"
+                    android:src="@drawable/ic_star_outline" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/detailDescription"
@@ -68,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:lineSpacingExtra="4dp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/text_secondary"
                 android:textSize="16sp"
                 tools:text="Detailed instructions appear here." />
 

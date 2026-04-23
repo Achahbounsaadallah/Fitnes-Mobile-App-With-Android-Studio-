@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/app_background"
     tools:context=".ui.WeeklyPlanActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -17,15 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleCentered="true"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@color/text_on_primary" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/headerCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/app_surface"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
+        app:strokeColor="@color/app_border"
+        app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -40,7 +43,7 @@
                 android:id="@+id/weekLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
+                android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:text="Weekly Plan for John" />
@@ -50,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 tools:text="2026-04-13 to 2026-04-19" />
 
@@ -66,7 +69,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/add_task" />
+                    android:text="@string/add_task"
+                    android:textColor="@color/text_on_primary"
+                    app:backgroundTint="@color/button_primary_tint" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/closeWeekButton"
@@ -74,7 +79,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="@string/close_week" />
+                    android:text="@string/close_week"
+                    android:textColor="@color/text_primary"
+                    app:backgroundTint="@color/button_secondary_selector" />
             </LinearLayout>
 
             <LinearLayout
@@ -89,7 +96,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/history" />
+                    android:text="@string/history"
+                    android:textColor="@color/text_primary"
+                    app:backgroundTint="@color/button_secondary_selector" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/logoutButton"
@@ -97,7 +106,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="@string/logout" />
+                    android:text="@string/logout"
+                    android:textColor="@color/button_destructive_text"
+                    app:backgroundTint="@color/button_destructive_tint" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

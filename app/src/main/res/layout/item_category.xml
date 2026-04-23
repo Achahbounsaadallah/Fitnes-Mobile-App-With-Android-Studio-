@@ -8,9 +8,10 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/app_surface"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
-    app:strokeColor="#22000000"
+    app:strokeColor="@color/app_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
             android:text="@string/category_label" />

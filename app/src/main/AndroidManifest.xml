@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectModule">
         <activity
+            android:name="com.example.projectmodule.ui.FavoritesActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.projectmodule.ui.HistoryActivity"
             android:exported="false" />
         <activity

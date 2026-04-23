@@ -8,10 +8,12 @@
     <string name="title_sign_up">Sign Up</string>
     <string name="title_weekly_plan">Weekly Plan</string>
     <string name="title_history">History</string>
+    <string name="title_favorites">My Favorites</string>
     <string name="category_label">Category</string>
     <string name="exercise_label">Exercise</string>
     <string name="exercise_description_label">Description</string>
     <string name="exercise_image_description">Exercise image</string>
+    <string name="favorite">Favorite</string>
     <string name="close_fullscreen">Close</string>
     <string name="close_fullscreen_symbol">✕</string>
     <string name="exercise_not_found_title">Exercise unavailable</string>
@@ -29,6 +31,10 @@
     <string name="not_logged_in">Not logged in: %1$s</string>
     <string name="open_weekly_plan">Open Weekly Plan</string>
     <string name="login_to_weekly_plan">Login to open weekly plan</string>
+    <string name="open_favorites">Open Favorites</string>
+    <string name="login_required_for_favorites">Please login to manage favorites</string>
+    <string name="login_to_view_favorites">Login to view your favorites</string>
+    <string name="no_favorites_yet">No favorite exercises yet</string>
     <string name="logout">Logout</string>
     <string name="weekly_plan_for_user">Weekly plan for %1$s</string>
     <string name="week_range_format">%1$s to %2$s</string>

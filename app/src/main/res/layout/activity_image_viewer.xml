@@ -22,7 +22,7 @@
         android:layout_gravity="top|start"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:background="#66000000"
+        android:background="@color/overlay_scrim"
         android:paddingHorizontal="12dp"
         android:paddingVertical="8dp"
         android:textColor="@android:color/white"
@@ -42,7 +42,7 @@
         android:contentDescription="@string/close_fullscreen"
         android:text="@string/close_fullscreen_symbol"
         android:textColor="@android:color/white"
-        app:backgroundTint="#66000000"
+        app:backgroundTint="@color/overlay_scrim"
         app:strokeColor="@android:color/white"
         app:strokeWidth="1dp" />
 

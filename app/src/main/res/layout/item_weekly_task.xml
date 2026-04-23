@@ -9,10 +9,10 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="#151515"
+    app:cardBackgroundColor="@color/app_surface"
     app:cardCornerRadius="16dp"
     app:cardElevation="0dp"
-    app:strokeColor="#1E1E1E"
+    app:strokeColor="@color/app_border"
     app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,7 +60,7 @@
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.01"
             android:maxLines="2"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_primary"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/taskIconBackground"
@@ -81,7 +81,7 @@
             android:paddingEnd="10dp"
             android:paddingBottom="5dp"
             android:textAllCaps="true"
-            android:textColor="#4CAF50"
+            android:textColor="@color/state_success"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@id/taskTitle"
             app:layout_constraintTop_toBottomOf="@id/taskTitle"
@@ -93,7 +93,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="#1E1E1E"
+            android:background="@color/app_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/taskIconBackground"
             app:layout_constraintTop_toBottomOf="@id/taskStatus" />
@@ -120,7 +120,9 @@
                 android:letterSpacing="0.02"
                 android:text="@string/status_yes"
                 android:textAllCaps="false"
+                android:textColor="@color/text_on_primary"
                 android:textSize="14sp"
+                app:backgroundTint="@color/button_primary"
 
                 app:cornerRadius="10dp"
                 app:elevation="0dp"
@@ -128,8 +130,8 @@
                 app:iconGravity="textStart"
                 app:iconPadding="6dp"
                 app:iconSize="18dp"
-                app:iconTint="#FFFFFF"
-                app:rippleColor="#40FFFFFF" />
+                app:iconTint="@color/text_on_primary"
+                app:rippleColor="@color/app_border" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/noButton"
@@ -141,8 +143,9 @@
                 android:letterSpacing="0.02"
                 android:text="@string/status_no"
                 android:textAllCaps="false"
-                android:textColor="#FF6B6B"
+                android:textColor="@color/button_destructive_text"
                 android:textSize="14sp"
+                app:backgroundTint="@color/button_destructive_bg"
 
                 app:cornerRadius="10dp"
                 app:elevation="0dp"
@@ -150,9 +153,9 @@
                 app:iconGravity="textStart"
                 app:iconPadding="6dp"
                 app:iconSize="18dp"
-                app:iconTint="#FF6B6B"
-                app:rippleColor="#40FF6B6B"
-                app:strokeColor="#331A1A"
+                app:iconTint="@color/button_destructive_text"
+                app:rippleColor="@color/app_border"
+                app:strokeColor="@color/button_destructive_text"
                 app:strokeWidth="1dp" />
         </LinearLayout>
 

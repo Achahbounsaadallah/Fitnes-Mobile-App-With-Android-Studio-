@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.projectmodule.R;
 import com.example.projectmodule.viewmodel.ExerciseDetailViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ExerciseDetailActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class ExerciseDetailActivity extends AppCompatActivity {
         String exerciseId = getIntent().getStringExtra(ExerciseActivity.EXTRA_EXERCISE_ID);
 
         final ImageView detailImage = findViewById(R.id.detailImage);
+        final ImageView favoriteButton = findViewById(R.id.detailFavoriteButton);
         final TextView detailTitle = findViewById(R.id.detailTitle);
         final TextView detailDescription = findViewById(R.id.detailDescription);
 
@@ -49,6 +51,8 @@ public class ExerciseDetailActivity extends AppCompatActivity {
                 detailDescription.setText(R.string.exercise_not_found_desc);
                 detailImage.setImageResource(R.drawable.ic_menu_compass);
                 detailImage.setOnClickListener(null);
+                favoriteButton.setOnClickListener(null);
+                favoriteButton.setImageResource(R.drawable.ic_star_outline);
                 return;
             }
 
@@ -61,7 +65,19 @@ public class ExerciseDetailActivity extends AppCompatActivity {
                 intent.putExtra(ImageViewerActivity.EXTRA_IMAGE_TITLE, exercise.getName());
                 startActivity(intent);
             });
+
+            favoriteButton.setOnClickListener(v -> {
+                boolean updated = viewModel.toggleFavorite();
+                if (!updated) {
+                    Snackbar.make(findViewById(android.R.id.content), R.string.login_required_for_favorites, Snackbar.LENGTH_SHORT).show();
+                }
+            });
         });
+
+        viewModel.getIsFavorite().observe(this, isFavorite ->
+                favoriteButton.setImageResource(Boolean.TRUE.equals(isFavorite)
+                        ? R.drawable.ic_star_filled
+                        : R.drawable.ic_star_outline));
         viewModel.loadExercise(exerciseId);
     }
 }
